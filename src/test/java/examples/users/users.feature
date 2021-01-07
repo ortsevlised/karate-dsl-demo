@@ -2,45 +2,43 @@ Feature: sample karate test script
   for help, see: https://github.com/intuit/karate/wiki/IDE-Support
 
   Background:
-    * url 'https://jsonplaceholder.typicode.com'
+    * url 'https://limitless-ridge-11429.herokuapp.com/'
 
-  Scenario: get all users and then get the first user by id
+  Scenario: Create a new user
     Given path 'users'
-    When method get
-    Then status 200
-
-    * def first = response[0]
-
-    Given path 'users', first.id
-    When method get
-    Then status 200
-
-  Scenario: create a user and then get it by id
-    * def user =
-      """
-      {
-        "name": "Test User",
-        "username": "testuser",
-        "email": "test@user.com",
-        "address": {
-          "street": "Has No Name",
-          "suite": "Apt. 123",
-          "city": "Electri",
-          "zipcode": "54321-6789"
-        }
-      }
-      """
-
-    Given url 'https://jsonplaceholder.typicode.com/users'
-    And request user
+    And request
+    """
+    {
+      "name": "Jorge",
+      "surname": "Des",
+      "username": "JD",
+      "dateOfBirth": "13/06/1986",
+      "email": "jorge@automationqa.tech"
+    }
+    """
     When method post
     Then status 201
 
-    * def id = response.id
-    * print 'created id is: ', id
+    * def location = responseHeaders['Location'][0]
 
-    Given path id
-    # When method get
-    # Then status 200
-    # And match response contains user
-  
+    Given url location
+    When method get
+    Then match response.email == "jorge@automationqa.tech"
+
+  Scenario: Get all users and validate scheme
+    Given path 'users'
+    When method get
+    Then status 200
+    And match response == '#array'
+    And match each response ==
+    """
+     {
+     id: '#number',
+     name: '#string',
+     surname: '#string',
+     username: '#string',
+     dateOfBirth: '#string',
+     email: '#string'
+     }
+    """
+
