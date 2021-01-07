@@ -1,8 +1,8 @@
-package examples.books.users;
+package features.books;
 
 import com.intuit.karate.junit5.Karate;
 
-class UsersRunner {
+class BooksRunner {
     
     @Karate.Test
     Karate testUsers() {

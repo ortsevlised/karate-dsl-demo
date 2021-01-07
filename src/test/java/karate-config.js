@@ -6,7 +6,7 @@ function fn() {
   }
   var config = {
     env: env,
-	myVarName: 'someValue'
+	 apiUrl: 'https://limitless-ridge-11429.herokuapp.com/'
   }
   if (env == 'dev') {
     // customize
