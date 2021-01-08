@@ -1,8 +1,7 @@
-Feature: sample karate test script
-  for help, see: https://github.com/intuit/karate/wiki/IDE-Support
+Feature: Users API tests
+
   Background:
     * url 'https://limitless-ridge-11429.herokuapp.com/'
-
 
   Scenario: Create a new user and validate is created
     Given path 'users'
@@ -16,6 +15,7 @@ Feature: sample karate test script
     When method get
     Then match response.email == "jorge@automationqa.tech"
 
+    @debug
   Scenario: Get all users and validate scheme
 
     * def isValidTime = read('../../helpers/time-validator.js')

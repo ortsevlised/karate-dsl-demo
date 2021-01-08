@@ -1,6 +1,6 @@
 function fn(s) {
     var SimpleDateFormat = Java.type("java.text.SimpleDateFormat");
-    var sdf = new SimpleDateFormat("dd/mm/yyyy");
+    var sdf = new SimpleDateFormat("dd-mm-yyyy");
     try {
         sdf.parse(s).time;
         return true;

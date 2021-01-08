@@ -3,7 +3,7 @@ package features;
 import com.intuit.karate.KarateOptions;
 import com.intuit.karate.junit5.Karate;
 
-@KarateOptions(tags = {"~@ignore", "@debug"})
+@KarateOptions(tags = {"~@ignore"})
 class Runner {
 
     // this will run all *.feature files that exist in sub-directories

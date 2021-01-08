@@ -1,4 +1,5 @@
 Feature: Creating a new user
+
 Background:
   * def dataGenerator = Java.type('helpers.DataGenerator')
 
@@ -12,7 +13,7 @@ Background:
         "email": '#(dataGenerator.getRandomEmail())',
       }
     """
-@debug
+
   Scenario: Create a new user and validate is created
     Given url apiUrl
     And path 'users'

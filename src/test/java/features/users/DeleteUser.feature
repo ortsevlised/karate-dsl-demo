@@ -1,6 +1,4 @@
-Feature: sample karate test script
-  for help, see: https://github.com/intuit/karate/wiki/IDE-Support
-
+Feature: Delete users
   Background:
     * def createUser = call read('classpath:features/users/CreateUser.feature')
 
