@@ -15,7 +15,6 @@ Feature: Users API tests
     When method get
     Then match response.email == "jorge@automationqa.tech"
 
-    @debug
   Scenario: Get all users and validate scheme
 
     * def isValidTime = read('../../helpers/time-validator.js')
@@ -43,7 +42,7 @@ Feature: Users API tests
       "name": "Jorge",
       "surname": "Des",
       "username": "JD",
-      "dateOfBirth": "13/06/1986",
+      "dateOfBirth": "13-06-1986",
       "email": "jorge@automationqa.tech"
     }
     """
